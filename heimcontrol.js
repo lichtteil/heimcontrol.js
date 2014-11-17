@@ -169,11 +169,11 @@ requirejs([ 'http', 'connect', 'mongodb', 'path', 'express', 'node-conf', 'socke
       app.get('plugin helper').getPluginList(function(err, plugins) {
         app.locals.plugins = plugins;
         app.set('plugins', plugins);
-
-        // 404 Not found
-        app.all('*', Routes.notFound);
-
       });
+
+      // 404 Not found
+      app.use(Routes.notFound);
+
     }
   });
 });
